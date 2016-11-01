@@ -31,7 +31,6 @@ public class HlavniOkno extends JFrame {
         casovac.start();
     }
 
-
     private void priZavreniOkna(WindowEvent e) {
         casovac.stop();
     }
@@ -76,7 +75,6 @@ public class HlavniOkno extends JFrame {
 
     private void PriStiskuKlaves(KeyEvent e) {
 
-
         if (e.getKeyCode() == KeyEvent.VK_LEFT) {
             labRybaVpravo.setVisible(false);
             labRybaVlevo.setVisible(true);
@@ -109,7 +107,7 @@ public class HlavniOkno extends JFrame {
             labRybaVpravo.setLocation(poziceRyba);
 
         }
-        if (e.getKeyCode() == KeyEvent.VK_RIGHT){
+        if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
             labRybaVpravo.setVisible(true);
             labRybaVlevo.setVisible(false);
             poziceRyba = new Point();
@@ -122,13 +120,13 @@ public class HlavniOkno extends JFrame {
             x = poziceRyba.x;
             y = poziceRyba.y;
 
-            if (x < 0){
+            if (x < 0) {
                 posunX = 5;
             }
-            if (x + labRybaVlevo.getWidth() < contentPane.getWidth()){
+            if (x + labRybaVlevo.getWidth() < contentPane.getWidth()) {
                 posunX = 5;
             }
-            if (x + labRybaVpravo.getWidth() < contentPane.getWidth()){
+            if (x + labRybaVpravo.getWidth() < contentPane.getWidth()) {
                 posunX = 5;
             }
             x = x + posunX;
@@ -138,10 +136,11 @@ public class HlavniOkno extends JFrame {
             labRybaVlevo.setLocation(poziceRyba);
             labRybaVpravo.setLocation(poziceRyba);
         }
-        if (e.getKeyCode() == KeyEvent.VK_DOWN){
+        if (e.getKeyCode() == KeyEvent.VK_DOWN) {
             if (labRybaVpravo.isVisible()) {
                 labRybaVlevo.setVisible(false);
-            } else {  labRybaVlevo.setVisible(true);
+            } else {
+                labRybaVlevo.setVisible(true);
 
             }
             poziceRyba = new Point();
@@ -150,27 +149,28 @@ public class HlavniOkno extends JFrame {
 
             Integer x;
             Integer y;
-            x=poziceRyba.x;
-            y=poziceRyba.y;
-            if (y < 0){
+            x = poziceRyba.x;
+            y = poziceRyba.y;
+            if (y < 0) {
                 posunY = 5;
             }
-            if (y+labRybaVlevo.getHeight()< contentPane.getHeight()){
+            if (y + labRybaVlevo.getHeight() < contentPane.getHeight()) {
                 posunY = 5;
             }
-            if (y+labRybaVpravo.getHeight()<contentPane.getHeight()){
+            if (y + labRybaVpravo.getHeight() < contentPane.getHeight()) {
                 posunY = 5;
             }
-            y=y+posunY;
-            poziceRyba.x =x;
-            poziceRyba.y=y;
+            y = y + posunY;
+            poziceRyba.x = x;
+            poziceRyba.y = y;
             labRybaVlevo.setLocation(poziceRyba);
             labRybaVpravo.setLocation(poziceRyba);
         }
-        if (e.getKeyCode() == KeyEvent.VK_UP){
+        if (e.getKeyCode() == KeyEvent.VK_UP) {
             if (labRybaVpravo.isVisible()) {
                 labRybaVlevo.setVisible(false);
-            } else {  labRybaVlevo.setVisible(true);
+            } else {
+                labRybaVlevo.setVisible(true);
 
             }
             poziceRyba = new Point();
@@ -179,20 +179,20 @@ public class HlavniOkno extends JFrame {
 
             Integer x;
             Integer y;
-            x=poziceRyba.x;
-            y=poziceRyba.y;
-            if (y > 0){
+            x = poziceRyba.x;
+            y = poziceRyba.y;
+            if (y > 0) {
                 posunY = -5;
             }
-            if (y+labRybaVlevo.getHeight()> contentPane.getHeight()){
+            if (y + labRybaVlevo.getHeight() > contentPane.getHeight()) {
                 posunY = -5;
             }
-            if (y+labRybaVpravo.getHeight()>contentPane.getHeight()){
+            if (y + labRybaVpravo.getHeight() > contentPane.getHeight()) {
                 posunY = -5;
             }
-            y=y+posunY;
-            poziceRyba.x =x;
-            poziceRyba.y=y;
+            y = y + posunY;
+            poziceRyba.x = x;
+            poziceRyba.y = y;
             labRybaVlevo.setLocation(poziceRyba);
             labRybaVpravo.setLocation(poziceRyba);
         }
@@ -214,6 +214,7 @@ public class HlavniOkno extends JFrame {
             public void windowClosed(WindowEvent e) {
                 priZavreniOkna(e);
             }
+
             @Override
             public void windowOpened(WindowEvent e) {
                 priOtevreniOkna(e);
@@ -257,7 +258,7 @@ public class HlavniOkno extends JFrame {
 
             { // compute preferred size
                 Dimension preferredSize = new Dimension();
-                for(int i = 0; i < contentPane.getComponentCount(); i++) {
+                for (int i = 0; i < contentPane.getComponentCount(); i++) {
                     Rectangle bounds = contentPane.getComponent(i).getBounds();
                     preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);
                     preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);
