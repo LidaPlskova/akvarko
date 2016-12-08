@@ -14,17 +14,20 @@ public class HlavniOkno extends JFrame {
     JLabel labZralok;
     JLabel labRybaVlevo;
     JLabel labRybaVpravo;
+    Random generatorNC;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
     Timer casovac;
     Integer posunX;
     Integer posunY;
     Point poziceRyba;
+    Integer nahodneCislo;
 
     public HlavniOkno() {
         initComponents();
     }
 
     private void priOtevreniOkna(WindowEvent e) {
+
         posunX = 5;
         posunY = 5;
         casovac = new Timer(15, this::priTiknutiCasovace);
@@ -40,6 +43,9 @@ public class HlavniOkno extends JFrame {
         poziceZraloka = new Point();
         labZralok.getLocation(poziceZraloka);
 
+        nahodneCislo = generatorNC.nextInt(15) + 3;
+
+
         Integer x;
         Integer y;
 
@@ -47,16 +53,16 @@ public class HlavniOkno extends JFrame {
         y = poziceZraloka.y;
 
         if (x < 0) {
-            posunX = 5;
+            posunX = nahodneCislo;
         }
         if (x + labZralok.getWidth() > contentPane.getWidth()) {
-            posunX = -5;
+            posunX = -nahodneCislo;
         }
         if (y < 0) {
-            posunY = 5;
+            posunY = nahodneCislo;
         }
         if (y + labZralok.getHeight() > contentPane.getHeight()) {
-            posunY = -5;
+            posunY = -nahodneCislo;
         }
 
         x = x + posunX;
@@ -89,13 +95,13 @@ public class HlavniOkno extends JFrame {
             y = poziceRyba.y;
 
             if (x > 0) {
-                posunX = -5;
+                posunX = -10;
             }
             if (x + labRybaVlevo.getWidth() > contentPane.getWidth()) {
-                posunX = -5;
+                posunX = -10;
             }
             if (x + labRybaVpravo.getWidth() > contentPane.getWidth()) {
-                posunX = -5;
+                posunX = -10;
             }
 
             x = x + posunX;
@@ -121,13 +127,13 @@ public class HlavniOkno extends JFrame {
             y = poziceRyba.y;
 
             if (x < 0) {
-                posunX = 5;
+                posunX = 10;
             }
             if (x + labRybaVlevo.getWidth() < contentPane.getWidth()) {
-                posunX = 5;
+                posunX = 10;
             }
             if (x + labRybaVpravo.getWidth() < contentPane.getWidth()) {
-                posunX = 5;
+                posunX = 10;
             }
             x = x + posunX;
             poziceRyba.x = x;
@@ -205,6 +211,7 @@ public class HlavniOkno extends JFrame {
         labZralok = new JLabel();
         labRybaVlevo = new JLabel();
         labRybaVpravo = new JLabel();
+        generatorNC = new Random();
 
         //======== this ========
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
@@ -214,7 +221,6 @@ public class HlavniOkno extends JFrame {
             public void windowClosed(WindowEvent e) {
                 priZavreniOkna(e);
             }
-
             @Override
             public void windowOpened(WindowEvent e) {
                 priOtevreniOkna(e);
@@ -258,7 +264,7 @@ public class HlavniOkno extends JFrame {
 
             { // compute preferred size
                 Dimension preferredSize = new Dimension();
-                for (int i = 0; i < contentPane.getComponentCount(); i++) {
+                for(int i = 0; i < contentPane.getComponentCount(); i++) {
                     Rectangle bounds = contentPane.getComponent(i).getBounds();
                     preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);
                     preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);
@@ -271,7 +277,7 @@ public class HlavniOkno extends JFrame {
             }
         }
         contentPane2.add(contentPane, BorderLayout.CENTER);
-        setSize(965, 920);
+        setSize(935, 755);
         setLocationRelativeTo(null);
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }

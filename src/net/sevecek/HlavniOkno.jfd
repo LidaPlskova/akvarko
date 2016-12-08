@@ -48,8 +48,13 @@ new FormModel {
 				"value": "Center"
 			} )
 		}, new FormLayoutConstraints( null ) {
-			"location": new java.awt.Point( 0, 0 )
-			"size": new java.awt.Dimension( 965, 920 )
+			"location": new java.awt.Point( 35, 0 )
+			"size": new java.awt.Dimension( 935, 755 )
+		} )
+		add( new FormNonVisual( "java.util.Random" ) {
+			name: "generatorNC"
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 5, 655 )
 		} )
 	}
 }
